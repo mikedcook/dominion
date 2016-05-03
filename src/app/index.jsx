@@ -1,6 +1,8 @@
 import React from 'react';
 import {render} from 'react-dom';
-import BuildGame from './BuildGame.jsx';
+import selectCardsInPlayFactory from './SelectCardsInPlay.jsx';
+
+const SelectCards = selectCardsInPlayFactory({ React });
 
 const App = function(props) {
 	return{
@@ -8,8 +10,8 @@ const App = function(props) {
 		render () {
 			return (
 				<div className="tableTop">
-					<h2  deckName='TheDeckName'>{ props.deckName }</h2>
-					<BuildGame />
+					<h2 deckName='TheDeckName'>{ props.deckName }</h2>
+					<SelectCards />
 				</div>
 			)
 		}

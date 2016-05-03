@@ -55,11 +55,13 @@
 	
 	var _reactDom = __webpack_require__(/*! react-dom */ 158);
 	
-	var _BuildGame = __webpack_require__(/*! ./BuildGame.jsx */ 159);
+	var _SelectCardsInPlay = __webpack_require__(/*! ./SelectCardsInPlay.jsx */ 160);
 	
-	var _BuildGame2 = _interopRequireDefault(_BuildGame);
+	var _SelectCardsInPlay2 = _interopRequireDefault(_SelectCardsInPlay);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var SelectCards = (0, _SelectCardsInPlay2.default)({ React: _react2.default });
 	
 	var App = function App(props) {
 		return {
@@ -73,7 +75,7 @@
 						{ deckName: 'TheDeckName' },
 						props.deckName
 					),
-					_react2.default.createElement(_BuildGame2.default, null)
+					_react2.default.createElement(SelectCards, null)
 				);
 			}
 		};
@@ -20157,327 +20159,331 @@
 
 
 /***/ },
-/* 159 */
-/*!**************************************!*\
-  !*** ./src/client/app/BuildGame.jsx ***!
-  \**************************************/
-/***/ function(module, exports, __webpack_require__) {
+/* 159 */,
+/* 160 */
+/*!**********************************************!*\
+  !*** ./src/client/app/SelectCardsInPlay.jsx ***!
+  \**********************************************/
+/***/ function(module, exports) {
 
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
+	var selectCardsInPlayFactory = function selectCardsInPlayFactory(_ref) {
+		var React = _ref.React;
 	
-	var _react = __webpack_require__(/*! react */ 1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var BuildGame = function BuildGame(props) {
-		var allCards = {
-			'default': {
-				'copper': {
-					'id': 1,
-					'type': 'treasure',
-					'cost': 0,
-					'value': 1
+		return function SelectCardsInPlay(props) {
+			var allCards = {
+				'default': {
+					'copper': {
+						'id': 1,
+						'type': 'treasure',
+						'cost': 0,
+						'value': 1
+					},
+					'silver': {
+						'id': 2,
+						'type': 'treasure',
+						'cost': 3,
+						'value': 2
+					},
+					'gold': {
+						'id': 3,
+						'type': 'treasure',
+						'cost': 6,
+						'value': 3
+					},
+					'estate': {
+						'id': 4,
+						'type': 'victory',
+						'cost': 2,
+						'points': 1
+					},
+					'duchy': {
+						'id': 5,
+						'type': 'victory',
+						'cost': 5,
+						'points': 3
+					},
+					'province': {
+						'id': 6,
+						'type': 'victory',
+						'cost': 8,
+						'points': 6
+					}
 				},
-				'silver': {
-					'id': 2,
-					'type': 'treasure',
-					'cost': 3,
-					'value': 2
-				},
-				'gold': {
-					'id': 3,
-					'type': 'treasure',
-					'cost': 6,
-					'value': 3
-				},
-				'estate': {
-					'id': 4,
-					'type': 'victory',
-					'cost': 2,
-					'points': 1
-				},
-				'duchy': {
-					'id': 5,
-					'type': 'victory',
-					'cost': 5,
-					'points': 3
-				},
-				'province': {
-					'id': 6,
-					'type': 'victory',
-					'cost': 8,
-					'points': 6
+				'optional': {
+					'adventurer': {
+						'id': 7,
+						'type': 'action',
+						'sub-type': 'standard',
+						'cost': 1
+					},
+					'cellar': {
+						'id': 8,
+						'type': 'action',
+						'sub-type': 'standard',
+						'cost': 1
+					},
+					'chancellor': {
+						'id': 9,
+						'type': 'action',
+						'sub-type': 'standard',
+						'cost': 1
+					},
+					'chapel': {
+						'id': 10,
+						'type': 'action',
+						'sub-type': 'standard',
+						'cost': 1
+					},
+					'councilroom': {
+						'id': 11,
+						'type': 'action',
+						'sub-type': 'standard',
+						'cost': 1
+					},
+					'feast': {
+						'id': 12,
+						'type': 'action',
+						'sub-type': 'standard',
+						'cost': 1
+					},
+					'festival': {
+						'id': 13,
+						'type': 'action',
+						'sub-type': 'standard',
+						'cost': 1
+					},
+					'laboratory': {
+						'id': 14,
+						'type': 'action',
+						'sub-type': 'standard',
+						'cost': 1
+					},
+					'library': {
+						'id': 15,
+						'type': 'action',
+						'sub-type': 'standard',
+						'cost': 1
+					},
+					'market': {
+						'id': 16,
+						'type': 'action',
+						'sub-type': 'standard',
+						'cost': 1
+					},
+					'mine': {
+						'id': 17,
+						'type': 'action',
+						'sub-type': 'standard',
+						'cost': 1
+					},
+					'moneylender': {
+						'id': 18,
+						'type': 'action',
+						'sub-type': 'standard',
+						'cost': 1
+					},
+					'remodel': {
+						'id': 19,
+						'type': 'action',
+						'sub-type': 'standard',
+						'cost': 1
+					},
+					'smithy': {
+						'id': 20,
+						'type': 'action',
+						'sub-type': 'standard',
+						'cost': 1
+					},
+					'throneroom': {
+						'id': 21,
+						'type': 'action',
+						'sub-type': 'standard',
+						'cost': 1
+					},
+					'village': {
+						'id': 22,
+						'type': 'action',
+						'sub-type': 'standard',
+						'cost': 1
+					},
+					'woodcutter': {
+						'id': 23,
+						'type': 'action',
+						'sub-type': 'standard',
+						'cost': 1
+					},
+					'workshop': {
+						'id': 24,
+						'type': 'action',
+						'sub-type': 'standard',
+						'cost': 1
+					},
+					'bureaucrat': {
+						'id': 25,
+						'type': 'action',
+						'sub-type': 'attack',
+						'cost': 1
+					},
+					'militia': {
+						'id': 26,
+						'type': 'action',
+						'sub-type': 'attack',
+						'cost': 1
+					},
+					'spy': {
+						'id': 27,
+						'type': 'action',
+						'sub-type': 'attack',
+						'cost': 1
+					},
+					'thief': {
+						'id': 28,
+						'type': 'action',
+						'sub-type': 'attack',
+						'cost': 1
+					},
+					'witch': {
+						'id': 29,
+						'type': 'action',
+						'sub-type': 'attack',
+						'cost': 1
+					},
+					'moat': {
+						'id': 30,
+						'type': 'action',
+						'sub-type': 'reaction',
+						'cost': 1
+					},
+					'curse': {
+						'id': 31,
+						'type': 'curse',
+						'cost': 1,
+						'points': -1
+					},
+					'gardens': {
+						'id': 32,
+						'type': 'victory',
+						'cost': 1,
+						'points': 0
+					}
 				}
 			},
-			'optional': {
-				'adventurer': {
-					'id': 7,
-					'type': 'action',
-					'sub-type': 'standard',
-					'cost': 1
-				},
-				'cellar': {
-					'id': 8,
-					'type': 'action',
-					'sub-type': 'standard',
-					'cost': 1
-				},
-				'chancellor': {
-					'id': 9,
-					'type': 'action',
-					'sub-type': 'standard',
-					'cost': 1
-				},
-				'chapel': {
-					'id': 10,
-					'type': 'action',
-					'sub-type': 'standard',
-					'cost': 1
-				},
-				'councilroom': {
-					'id': 11,
-					'type': 'action',
-					'sub-type': 'standard',
-					'cost': 1
-				},
-				'feast': {
-					'id': 12,
-					'type': 'action',
-					'sub-type': 'standard',
-					'cost': 1
-				},
-				'festival': {
-					'id': 13,
-					'type': 'action',
-					'sub-type': 'standard',
-					'cost': 1
-				},
-				'laboratory': {
-					'id': 14,
-					'type': 'action',
-					'sub-type': 'standard',
-					'cost': 1
-				},
-				'library': {
-					'id': 15,
-					'type': 'action',
-					'sub-type': 'standard',
-					'cost': 1
-				},
-				'market': {
-					'id': 16,
-					'type': 'action',
-					'sub-type': 'standard',
-					'cost': 1
-				},
-				'mine': {
-					'id': 17,
-					'type': 'action',
-					'sub-type': 'standard',
-					'cost': 1
-				},
-				'moneylender': {
-					'id': 18,
-					'type': 'action',
-					'sub-type': 'standard',
-					'cost': 1
-				},
-				'remodel': {
-					'id': 19,
-					'type': 'action',
-					'sub-type': 'standard',
-					'cost': 1
-				},
-				'smithy': {
-					'id': 20,
-					'type': 'action',
-					'sub-type': 'standard',
-					'cost': 1
-				},
-				'throneroom': {
-					'id': 21,
-					'type': 'action',
-					'sub-type': 'standard',
-					'cost': 1
-				},
-				'village': {
-					'id': 22,
-					'type': 'action',
-					'sub-type': 'standard',
-					'cost': 1
-				},
-				'woodcutter': {
-					'id': 23,
-					'type': 'action',
-					'sub-type': 'standard',
-					'cost': 1
-				},
-				'workshop': {
-					'id': 24,
-					'type': 'action',
-					'sub-type': 'standard',
-					'cost': 1
-				},
-				'bureaucrat': {
-					'id': 25,
-					'type': 'action',
-					'sub-type': 'attack',
-					'cost': 1
-				},
-				'militia': {
-					'id': 26,
-					'type': 'action',
-					'sub-type': 'attack',
-					'cost': 1
-				},
-				'spy': {
-					'id': 27,
-					'type': 'action',
-					'sub-type': 'attack',
-					'cost': 1
-				},
-				'thief': {
-					'id': 28,
-					'type': 'action',
-					'sub-type': 'attack',
-					'cost': 1
-				},
-				'witch': {
-					'id': 29,
-					'type': 'action',
-					'sub-type': 'attack',
-					'cost': 1
-				},
-				'moat': {
-					'id': 30,
-					'type': 'action',
-					'sub-type': 'reaction',
-					'cost': 1
-				},
-				'curse': {
-					'id': 31,
-					'type': 'curse',
-					'cost': 1,
-					'points': -1
-				},
-				'gardens': {
-					'id': 32,
-					'type': 'victory',
-					'cost': 1,
-					'points': 0
-				}
-			}
-		},
-		    cardsInPlay = {
-			'default': ['copper', 'silver', 'gold', 'estate', 'duchy', 'province'],
-			'optional': []
-		},
-		    selectCardForPlay = function selectCardForPlay(cardName) {
-			if (cardsInPlay.optional.indexOf(cardName) === -1) {
-				if (cardsInPlay.optional.length < 10) {
-					cardsInPlay.optional.push(cardName);
+			    cardsInPlay = {
+				'default': ['copper', 'silver', 'gold', 'estate', 'duchy', 'province'],
+				'optional': []
+			},
+			    selectCardForPlay = function selectCardForPlay(cardName) {
+				if (cardsInPlay.optional.indexOf(cardName) === -1) {
+					if (cardsInPlay.optional.length < 10) {
+						cardsInPlay.optional.push(cardName);
+					} else {
+						console.log('You have enough');
+					}
 				} else {
-					console.log('You have enough');
+					cardsInPlay.optional.splice(cardsInPlay.optional.indexOf(cardName), 1);
 				}
-			} else {
-				cardsInPlay.optional.splice(cardsInPlay.optional.indexOf(cardName), 1);
-			}
-			console.log(cardsInPlay.optional);
-		};
-		return {
-			props: props,
-			render: function render() {
-				return _react2.default.createElement(
-					'div',
-					{ className: 'deck' },
-					_react2.default.createElement(
+				console.log(cardsInPlay.optional);
+			};
+			return {
+				props: props,
+				render: function render() {
+					return React.createElement(
 						'div',
-						{ className: 'deckCat' },
-						_react2.default.createElement(
-							'h2',
-							null,
-							'Default Cards'
-						),
-						_react2.default.createElement(
+						{ className: 'deck' },
+						React.createElement(
 							'div',
-							{ className: 'deckFlex' },
-							Object.keys(allCards.default).map(function (card, i) {
-								return _react2.default.createElement(
-									'div',
-									{ className: 'card' },
-									_react2.default.createElement('img', { key: i, src: './images/' + card + '.jpg' })
-								);
-							})
-						)
-					),
-					_react2.default.createElement(
-						'div',
-						{ className: 'deckCat selectCards' },
-						_react2.default.createElement(
-							'h2',
-							null,
-							'Optional Cards'
+							{ className: 'deckCat' },
+							React.createElement(
+								'h2',
+								null,
+								'Default Cards'
+							),
+							React.createElement(
+								'div',
+								{ className: 'deckFlex' },
+								Object.keys(allCards.default).map(function (card, i) {
+									return React.createElement(
+										'div',
+										{ className: 'card' },
+										React.createElement('img', { key: i, src: './images/' + card + '.jpg' })
+									);
+								})
+							)
 						),
-						_react2.default.createElement(
-							'h3',
-							null,
-							'Please select 10 cards to add to your game.'
-						),
-						_react2.default.createElement(
+						React.createElement(
 							'div',
-							{ className: 'deckFlex' },
-							Object.keys(allCards.optional).map(function (card, i) {
-								return _react2.default.createElement(
-									'div',
-									{ className: 'card', onClick: function onClick() {
-											return selectCardForPlay(card);
-										} },
-									_react2.default.createElement('img', { key: i, src: './images/' + card + '.jpg' })
-								);
-							})
-						)
-					),
-					_react2.default.createElement(
-						'div',
-						null,
-						_react2.default.createElement(
+							{ className: 'deckCat selectCards' },
+							React.createElement(
+								'h2',
+								null,
+								'Optional Cards'
+							),
+							React.createElement(
+								'h3',
+								null,
+								'Please select 10 cards to add to your game.'
+							),
+							React.createElement(
+								'div',
+								{ className: 'deckFlex' },
+								Object.keys(allCards.optional).map(function (card, i) {
+									return React.createElement(
+										'div',
+										{
+											className: 'card',
+											onClick: function onClick() {
+												return selectCardForPlay(card);
+											}
+										},
+										React.createElement('img', {
+											key: i,
+											src: './images/' + card + '.jpg'
+										})
+									);
+								})
+							)
+						),
+						React.createElement(
+							'div',
+							null,
+							React.createElement(
+								'button',
+								{
+									onClick: function onClick() {
+										return selectCardForPlay('temp');
+									}
+								},
+								'Add one to the deck.'
+							)
+						),
+						React.createElement(
+							'div',
+							{ className: 'playerDashboard' },
+							React.createElement(
+								'span',
+								null,
+								'Cards Chosen: ',
+								cardsInPlay.optional.length,
+								'/10'
+							)
+						),
+						React.createElement(
 							'button',
-							{
-								onClick: function onClick() {
-									return selectCardForPlay('temp');
-								}
-							},
-							'Add one to the deck.'
+							{ className: 'startGameButton', disabled: true },
+							'Start Game'
 						)
-					),
-					_react2.default.createElement(
-						'div',
-						{ className: 'playerDashboard' },
-						_react2.default.createElement(
-							'span',
-							null,
-							'Cards Chosen: ',
-							cardsInPlay.optional.length,
-							'/10'
-						)
-					),
-					_react2.default.createElement(
-						'button',
-						{ className: 'startGameButton', disabled: true },
-						'Start Game'
-					)
-				);
-			}
+					);
+				}
+			};
 		};
 	};
 	
-	exports.default = BuildGame;
+	exports.default = selectCardsInPlayFactory;
 
 /***/ }
 /******/ ]);
