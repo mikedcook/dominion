@@ -49,8 +49,6 @@
 
 	'use strict';
 	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
 	var _react = __webpack_require__(/*! react */ 1);
 	
 	var _react2 = _interopRequireDefault(_react);
@@ -61,42 +59,27 @@
 	
 	var _BuildGame2 = _interopRequireDefault(_BuildGame);
 	
-	var _AwesomeComponent = __webpack_require__(/*! ./AwesomeComponent.jsx */ 160);
-	
-	var _AwesomeComponent2 = _interopRequireDefault(_AwesomeComponent);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var App = function (_React$Component) {
-		_inherits(App, _React$Component);
-	
-		function App() {
-			_classCallCheck(this, App);
-	
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(App).apply(this, arguments));
-		}
-	
-		_createClass(App, [{
-			key: 'render',
-			value: function render() {
+	var App = function App(props) {
+		return {
+			props: props,
+			render: function render() {
 				return _react2.default.createElement(
 					'div',
 					{ className: 'tableTop' },
+					_react2.default.createElement(
+						'h2',
+						{ deckName: 'TheDeckName' },
+						props.deckName
+					),
 					_react2.default.createElement(_BuildGame2.default, null)
 				);
 			}
-		}]);
+		};
+	};
 	
-		return App;
-	}(_react2.default.Component);
-	
-	(0, _reactDom.render)(_react2.default.createElement(App, null), document.getElementById('app'));
+	(0, _reactDom.render)(_react2.default.createElement(App, { deckName: 'TheDeckName' }), document.getElementById('app'));
 
 /***/ },
 /* 1 */
@@ -20186,303 +20169,278 @@
 		value: true
 	});
 	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
 	var _react = __webpack_require__(/*! react */ 1);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var BuildGame = function (_React$Component) {
-		_inherits(BuildGame, _React$Component);
-	
-		function BuildGame(props) {
-			_classCallCheck(this, BuildGame);
-	
-			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(BuildGame).call(this, props));
-	
-			var self = _this;
-			_this.state = {
-				deck: {},
-				cards: {
-					'default': {
-						'copper': {
-							'id': 1,
-							'type': 'treasure',
-							'cost': 0,
-							'value': 1
-						},
-						'silver': {
-							'id': 2,
-							'type': 'treasure',
-							'cost': 3,
-							'value': 2
-						},
-						'gold': {
-							'id': 3,
-							'type': 'treasure',
-							'cost': 6,
-							'value': 3
-						},
-						'estate': {
-							'id': 4,
-							'type': 'victory',
-							'cost': 2,
-							'points': 1
-						},
-						'duchy': {
-							'id': 5,
-							'type': 'victory',
-							'cost': 5,
-							'points': 3
-						},
-						'province': {
-							'id': 6,
-							'type': 'victory',
-							'cost': 8,
-							'points': 6
-						}
-					},
-					'optional': {
-						'adventurer': {
-							'id': 7,
-							'type': 'action',
-							'sub-type': 'standard',
-							'cost': 1
-						},
-						'cellar': {
-							'id': 8,
-							'type': 'action',
-							'sub-type': 'standard',
-							'cost': 1
-						},
-						'chancellor': {
-							'id': 9,
-							'type': 'action',
-							'sub-type': 'standard',
-							'cost': 1
-						},
-						'chapel': {
-							'id': 10,
-							'type': 'action',
-							'sub-type': 'standard',
-							'cost': 1
-						},
-						'councilroom': {
-							'id': 11,
-							'type': 'action',
-							'sub-type': 'standard',
-							'cost': 1
-						},
-						'feast': {
-							'id': 12,
-							'type': 'action',
-							'sub-type': 'standard',
-							'cost': 1
-						},
-						'festival': {
-							'id': 13,
-							'type': 'action',
-							'sub-type': 'standard',
-							'cost': 1
-						},
-						'laboratory': {
-							'id': 14,
-							'type': 'action',
-							'sub-type': 'standard',
-							'cost': 1
-						},
-						'library': {
-							'id': 15,
-							'type': 'action',
-							'sub-type': 'standard',
-							'cost': 1
-						},
-						'market': {
-							'id': 16,
-							'type': 'action',
-							'sub-type': 'standard',
-							'cost': 1
-						},
-						'mine': {
-							'id': 17,
-							'type': 'action',
-							'sub-type': 'standard',
-							'cost': 1
-						},
-						'moneylender': {
-							'id': 18,
-							'type': 'action',
-							'sub-type': 'standard',
-							'cost': 1
-						},
-						'remodel': {
-							'id': 19,
-							'type': 'action',
-							'sub-type': 'standard',
-							'cost': 1
-						},
-						'smithy': {
-							'id': 20,
-							'type': 'action',
-							'sub-type': 'standard',
-							'cost': 1
-						},
-						'throneroom': {
-							'id': 21,
-							'type': 'action',
-							'sub-type': 'standard',
-							'cost': 1
-						},
-						'village': {
-							'id': 22,
-							'type': 'action',
-							'sub-type': 'standard',
-							'cost': 1
-						},
-						'woodcutter': {
-							'id': 23,
-							'type': 'action',
-							'sub-type': 'standard',
-							'cost': 1
-						},
-						'workshop': {
-							'id': 24,
-							'type': 'action',
-							'sub-type': 'standard',
-							'cost': 1
-						},
-						'bureaucrat': {
-							'id': 25,
-							'type': 'action',
-							'sub-type': 'attack',
-							'cost': 1
-						},
-						'militia': {
-							'id': 26,
-							'type': 'action',
-							'sub-type': 'attack',
-							'cost': 1
-						},
-						'spy': {
-							'id': 27,
-							'type': 'action',
-							'sub-type': 'attack',
-							'cost': 1
-						},
-						'thief': {
-							'id': 28,
-							'type': 'action',
-							'sub-type': 'attack',
-							'cost': 1
-						},
-						'witch': {
-							'id': 29,
-							'type': 'action',
-							'sub-type': 'attack',
-							'cost': 1
-						},
-						'moat': {
-							'id': 30,
-							'type': 'action',
-							'sub-type': 'reaction',
-							'cost': 1
-						},
-						'curse': {
-							'id': 31,
-							'type': 'curse',
-							'cost': 1,
-							'points': -1
-						},
-						'gardens': {
-							'id': 32,
-							'type': 'victory',
-							'cost': 1,
-							'points': 0
-						}
-					},
-					'chosen': {}
+	var BuildGame = function BuildGame(props) {
+		var allCards = {
+			'default': {
+				'copper': {
+					'id': 1,
+					'type': 'treasure',
+					'cost': 0,
+					'value': 1
+				},
+				'silver': {
+					'id': 2,
+					'type': 'treasure',
+					'cost': 3,
+					'value': 2
+				},
+				'gold': {
+					'id': 3,
+					'type': 'treasure',
+					'cost': 6,
+					'value': 3
+				},
+				'estate': {
+					'id': 4,
+					'type': 'victory',
+					'cost': 2,
+					'points': 1
+				},
+				'duchy': {
+					'id': 5,
+					'type': 'victory',
+					'cost': 5,
+					'points': 3
+				},
+				'province': {
+					'id': 6,
+					'type': 'victory',
+					'cost': 8,
+					'points': 6
 				}
-			};
-			_this.addToDeck = _this.addToDeck.bind(_this);
-			self.selectCard = _this.selectCard.bind(_this);
-			return _this;
-		}
-	
-		_createClass(BuildGame, [{
-			key: 'addToDeck',
-			value: function addToDeck() {
-				console.log(this.state.deck);
-				this.setState({
-					deck: this.state.deck.concat('market')
-				});
-				console.log(this.state.deck);
+			},
+			'optional': {
+				'adventurer': {
+					'id': 7,
+					'type': 'action',
+					'sub-type': 'standard',
+					'cost': 1
+				},
+				'cellar': {
+					'id': 8,
+					'type': 'action',
+					'sub-type': 'standard',
+					'cost': 1
+				},
+				'chancellor': {
+					'id': 9,
+					'type': 'action',
+					'sub-type': 'standard',
+					'cost': 1
+				},
+				'chapel': {
+					'id': 10,
+					'type': 'action',
+					'sub-type': 'standard',
+					'cost': 1
+				},
+				'councilroom': {
+					'id': 11,
+					'type': 'action',
+					'sub-type': 'standard',
+					'cost': 1
+				},
+				'feast': {
+					'id': 12,
+					'type': 'action',
+					'sub-type': 'standard',
+					'cost': 1
+				},
+				'festival': {
+					'id': 13,
+					'type': 'action',
+					'sub-type': 'standard',
+					'cost': 1
+				},
+				'laboratory': {
+					'id': 14,
+					'type': 'action',
+					'sub-type': 'standard',
+					'cost': 1
+				},
+				'library': {
+					'id': 15,
+					'type': 'action',
+					'sub-type': 'standard',
+					'cost': 1
+				},
+				'market': {
+					'id': 16,
+					'type': 'action',
+					'sub-type': 'standard',
+					'cost': 1
+				},
+				'mine': {
+					'id': 17,
+					'type': 'action',
+					'sub-type': 'standard',
+					'cost': 1
+				},
+				'moneylender': {
+					'id': 18,
+					'type': 'action',
+					'sub-type': 'standard',
+					'cost': 1
+				},
+				'remodel': {
+					'id': 19,
+					'type': 'action',
+					'sub-type': 'standard',
+					'cost': 1
+				},
+				'smithy': {
+					'id': 20,
+					'type': 'action',
+					'sub-type': 'standard',
+					'cost': 1
+				},
+				'throneroom': {
+					'id': 21,
+					'type': 'action',
+					'sub-type': 'standard',
+					'cost': 1
+				},
+				'village': {
+					'id': 22,
+					'type': 'action',
+					'sub-type': 'standard',
+					'cost': 1
+				},
+				'woodcutter': {
+					'id': 23,
+					'type': 'action',
+					'sub-type': 'standard',
+					'cost': 1
+				},
+				'workshop': {
+					'id': 24,
+					'type': 'action',
+					'sub-type': 'standard',
+					'cost': 1
+				},
+				'bureaucrat': {
+					'id': 25,
+					'type': 'action',
+					'sub-type': 'attack',
+					'cost': 1
+				},
+				'militia': {
+					'id': 26,
+					'type': 'action',
+					'sub-type': 'attack',
+					'cost': 1
+				},
+				'spy': {
+					'id': 27,
+					'type': 'action',
+					'sub-type': 'attack',
+					'cost': 1
+				},
+				'thief': {
+					'id': 28,
+					'type': 'action',
+					'sub-type': 'attack',
+					'cost': 1
+				},
+				'witch': {
+					'id': 29,
+					'type': 'action',
+					'sub-type': 'attack',
+					'cost': 1
+				},
+				'moat': {
+					'id': 30,
+					'type': 'action',
+					'sub-type': 'reaction',
+					'cost': 1
+				},
+				'curse': {
+					'id': 31,
+					'type': 'curse',
+					'cost': 1,
+					'points': -1
+				},
+				'gardens': {
+					'id': 32,
+					'type': 'victory',
+					'cost': 1,
+					'points': 0
+				}
 			}
-		}, {
-			key: 'selectCard',
-			value: function selectCard() {
-				console.log('card clicked');
+		},
+		    cardsInPlay = {
+			'default': ['copper', 'silver', 'gold', 'estate', 'duchy', 'province'],
+			'optional': []
+		},
+		    selectCardForPlay = function selectCardForPlay(cardName) {
+			if (cardsInPlay.optional.indexOf(cardName) === -1) {
+				if (cardsInPlay.optional.length < 10) {
+					cardsInPlay.optional.push(cardName);
+				} else {
+					console.log('You have enough');
+				}
+			} else {
+				cardsInPlay.optional.splice(cardsInPlay.optional.indexOf(cardName), 1);
 			}
-		}, {
-			key: 'render',
-			value: function render() {
+			console.log(cardsInPlay.optional);
+		};
+		return {
+			props: props,
+			render: function render() {
 				return _react2.default.createElement(
 					'div',
-					null,
+					{ className: 'deck' },
 					_react2.default.createElement(
 						'div',
-						{ className: 'deck' },
+						{ className: 'deckCat' },
 						_react2.default.createElement(
-							'div',
-							{ className: 'deckCat' },
-							_react2.default.createElement(
-								'h2',
-								null,
-								'Default Cards'
-							),
-							_react2.default.createElement(
-								'div',
-								{ className: 'deckFlex' },
-								Object.keys(this.state.cards.default).map(function (card, i) {
-									return _react2.default.createElement(
-										'div',
-										{ className: 'card' },
-										_react2.default.createElement('img', { key: i, src: './images/' + card + '.jpg' })
-									);
-								})
-							)
+							'h2',
+							null,
+							'Default Cards'
 						),
 						_react2.default.createElement(
 							'div',
-							{ className: 'deckCat selectCards' },
-							_react2.default.createElement(
-								'h2',
-								null,
-								'Optional Cards'
-							),
-							_react2.default.createElement(
-								'h3',
-								null,
-								'Please select 10 cards to add to your game.'
-							),
-							_react2.default.createElement(
-								'div',
-								{ className: 'deckFlex' },
-								Object.keys(this.state.cards.optional).map(function (card, i) {
-									return _react2.default.createElement(
-										'div',
-										{ className: 'card' },
-										_react2.default.createElement('img', { key: i, src: './images/' + card + '.jpg', onClick: self.selectCard })
-									);
-								})
-							)
+							{ className: 'deckFlex' },
+							Object.keys(allCards.default).map(function (card, i) {
+								return _react2.default.createElement(
+									'div',
+									{ className: 'card' },
+									_react2.default.createElement('img', { key: i, src: './images/' + card + '.jpg' })
+								);
+							})
+						)
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'deckCat selectCards' },
+						_react2.default.createElement(
+							'h2',
+							null,
+							'Optional Cards'
+						),
+						_react2.default.createElement(
+							'h3',
+							null,
+							'Please select 10 cards to add to your game.'
+						),
+						_react2.default.createElement(
+							'div',
+							{ className: 'deckFlex' },
+							Object.keys(allCards.optional).map(function (card, i) {
+								return _react2.default.createElement(
+									'div',
+									{ className: 'card', onClick: function onClick() {
+											return selectCardForPlay(card);
+										} },
+									_react2.default.createElement('img', { key: i, src: './images/' + card + '.jpg' })
+								);
+							})
 						)
 					),
 					_react2.default.createElement(
@@ -20490,94 +20448,36 @@
 						null,
 						_react2.default.createElement(
 							'button',
-							{ onClick: this.addToDeck },
+							{
+								onClick: function onClick() {
+									return selectCardForPlay('temp');
+								}
+							},
 							'Add one to the deck.'
 						)
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'playerDashboard' },
+						_react2.default.createElement(
+							'span',
+							null,
+							'Cards Chosen: ',
+							cardsInPlay.optional.length,
+							'/10'
+						)
+					),
+					_react2.default.createElement(
+						'button',
+						{ className: 'startGameButton', disabled: true },
+						'Start Game'
 					)
 				);
 			}
-		}]);
-	
-		return BuildGame;
-	}(_react2.default.Component);
+		};
+	};
 	
 	exports.default = BuildGame;
-
-/***/ },
-/* 160 */
-/*!*********************************************!*\
-  !*** ./src/client/app/AwesomeComponent.jsx ***!
-  \*********************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(/*! react */ 1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var AwesomeComponent = function (_React$Component) {
-	  _inherits(AwesomeComponent, _React$Component);
-	
-	  function AwesomeComponent(props) {
-	    _classCallCheck(this, AwesomeComponent);
-	
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(AwesomeComponent).call(this, props));
-	
-	    _this.state = { likesCount: 0 };
-	    _this.onLike = _this.onLike.bind(_this);
-	    return _this;
-	  }
-	
-	  _createClass(AwesomeComponent, [{
-	    key: 'onLike',
-	    value: function onLike() {
-	      var newLikesCount = this.state.likesCount + 1;
-	      this.setState({ likesCount: newLikesCount });
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        'Likes : ',
-	        _react2.default.createElement(
-	          'span',
-	          null,
-	          this.state.likesCount
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          null,
-	          _react2.default.createElement(
-	            'button',
-	            { onClick: this.onLike },
-	            'Like Me'
-	          )
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return AwesomeComponent;
-	}(_react2.default.Component);
-	
-	exports.default = AwesomeComponent;
 
 /***/ }
 /******/ ]);

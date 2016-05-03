@@ -1,16 +1,19 @@
 import React from 'react';
 import {render} from 'react-dom';
 import BuildGame from './BuildGame.jsx';
-import AwesomeComponent from './AwesomeComponent.jsx';
 
-class App extends React.Component {
-  render () {
-    return (
-		<div className="tableTop">
-			<BuildGame />
-		</div>
-	);
-  }
+const App = function(props) {
+	return{
+		props,
+		render () {
+			return (
+				<div className="tableTop">
+					<h2  deckName='TheDeckName'>{ props.deckName }</h2>
+					<BuildGame />
+				</div>
+			)
+		}
+	}
 }
 
-render(<App/>, document.getElementById('app'));
+render(<App deckName='TheDeckName'/>, document.getElementById('app'));
